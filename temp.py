@@ -1,13 +1,13 @@
-from selenium import webdriver
+def gen_countdown(n):
+    while n != 0:
+        yield n - 1
+        n -= 1
 
-browser = webdriver.Chrome()
-# говорим WebDriver искать каждый элемент в течение 5 секунд
-browser.implicitly_wait(5)
+# g = gen_countdown(4)
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# print(next(g))
 
-browser.get("http://suninjuly.github.io/wait1.html")
-
-button = browser.find_element_by_id("verify")
-button.click()
-message = browser.find_element_by_id("verify_message")
-
-assert "successful" in message.text
+for i in gen_countdown(4):
+    print(i)
